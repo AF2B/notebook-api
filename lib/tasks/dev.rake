@@ -10,5 +10,11 @@ namespace :dev do
       )
     end
     puts 'Done!'
+
+    kind_contacts = %w[Friend Family Colleague Work]
+
+    kind_contacts.each do |contact|
+      Kind.create!(description: contact)
+    end
   end
 end
