@@ -11,7 +11,7 @@ namespace :dev do
     end
     puts 'Done!'
 
-    kind_contacts = %w[Friend Family Colleague Work]
+    kind_contacts = %w[Friend Family Work]
 
     puts 'Creating kinds...'
     kind_contacts.each do |contact|
