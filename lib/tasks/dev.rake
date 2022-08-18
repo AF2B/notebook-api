@@ -13,8 +13,10 @@ namespace :dev do
 
     kind_contacts = %w[Friend Family Colleague Work]
 
+    puts 'Creating kinds...'
     kind_contacts.each do |contact|
       Kind.create!(description: contact)
     end
+    puts 'Kinds created!'
   end
 end
