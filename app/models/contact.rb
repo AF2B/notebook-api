@@ -1,5 +1,6 @@
 class Contact < ApplicationRecord
   belongs_to :kind
+  has_many :phones
 
   def birthdate_formatted_ptbr
     I18n.localize(birthdate) unless birthdate.blank?
