@@ -29,3 +29,5 @@
 ## Routes
 * /contacts ~> GET: index, POST: create
 * /contacts/:id ~> GET: show, PATCH: update, DELETE: destroy
+
+[loading...]
