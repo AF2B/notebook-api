@@ -6,7 +6,8 @@ class ContactsController < ApplicationController
 
     render json: @contacts.map { |contact|
       contact.as_json.merge(kind: contact.kind.description)
-    }
+    },
+           methods: %i[birthdate_formatted_ptbr]
   end
 
   def show
