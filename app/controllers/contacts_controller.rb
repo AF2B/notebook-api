@@ -7,11 +7,11 @@ class ContactsController < ApplicationController
     render json: @contacts.map { |contact|
       contact.as_json.merge(kind: contact.kind.description)
     },
-           methods: %i[birthdate_formatted_ptbr]
+           methods: :birthdate_formatted_ptbr
   end
 
   def show
-    render json: @contact.as_json.merge(kind: @contact.kind.description)
+    render json: @contact.to_ptbr
   end
 
   def create
