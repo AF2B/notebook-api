@@ -2,6 +2,8 @@ class Contact < ApplicationRecord
   belongs_to :kind
   has_many :phones
 
+  accepts_nested_attributes_for :phones, allow_destroy: true
+
   def as_json(_options = {})
     hash = super(except: %i[created_at updated_at kind_id id])
     hash[:birthdate] = birthdate_formatted_ptbr
