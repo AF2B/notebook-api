@@ -20,4 +20,13 @@ namespace :dev do
     end
     puts 'Done!'
   end
+
+  task setup_phones: :environment do
+    Contact.all.each do |contact|
+      Phone.create!(
+        number: Faker::PhoneNumber.phone_number,
+        contact: contact
+      )
+    end
+  end
 end
