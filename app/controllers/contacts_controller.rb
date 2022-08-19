@@ -10,7 +10,7 @@ class ContactsController < ApplicationController
   end
 
   def show
-    render json: @contact, include: :kind, include: :phones
+    render json: @contact
   end
 
   def create
