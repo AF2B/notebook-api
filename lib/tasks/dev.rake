@@ -2,6 +2,10 @@ namespace :dev do
   desc 'Configure development environment'
   puts 'Loading...'
   task setup: :environment do
+    puts 'Reseting database...'
+    `rails db:drop db:create db:migrate`
+    puts 'Done database!'
+
     kind_contacts = %w[Friend Family Work]
 
     puts 'Creating kinds...'
@@ -19,14 +23,26 @@ namespace :dev do
       )
     end
     puts 'Done!'
-  end
 
-  task setup_phones: :environment do
+    puts 'Creating phones...'
     Contact.all.each do |contact|
-      Phone.create!(
-        number: Faker::PhoneNumber.phone_number,
+      3.times do
+        Phone.create!(
+          number: Faker::PhoneNumber.phone_number,
+          contact: contact
+        )
+      end
+    end
+    puts 'Phones created!'
+
+    puts 'Creating addresses...'
+    Contact.all.each do |contact|
+      contact.create_address(
+        street: Faker::Address.street_name,
+        city: Faker::Address.city,
         contact: contact
       )
     end
+    puts 'Addresses created!'
   end
 end
