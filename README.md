@@ -30,4 +30,22 @@
 * /contacts ~> GET: index, POST: create
 * /contacts/:id ~> GET: show, PATCH: update, DELETE: destroy
 
+## Data structure to create a new contact using the API with POST HTTP method
+{ "contact":
+	{
+		"name": "name_value",
+		"email": "email value",
+		"birthdate": "dd/mm/yyyy",
+		"kind_id": "1, 2 or 3", ~> 1: Friend, 2: Family, 3: Work
+		"phones_attributes": [
+			{
+				"number": "phone_number"
+			},
+			{
+				"number": "phone_number_optional"
+			}
+		]
+	}
+}
+
 [loading...]
