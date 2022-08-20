@@ -11,11 +11,8 @@
 ## Configuration
 * clone the project with git and run on terminal <code>bundle install</code>
 
-## Database creation
-* run <code>rails db:create</code>
-* run <code>rails db:migrate</code>
+## Setup environment
 * run <code>rails dev:setup</code>
-* run <code>rails dev:setup_phones</code>
 
 ## How to run the test suite
 * run <code>rails rspec</code> for all tests
