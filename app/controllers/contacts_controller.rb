@@ -34,8 +34,8 @@ class ContactsController < ApplicationController
   end
 
   def destroy
-    if @contact.destroy
-      render json: @contact
+    if @contact.destroy && @contact.phones.destroy_all
+      render json: @contact, status: :ok, message: 'Contact deleted'
     else
       render json: @contact.errors, status: :unprocessable_entity
     end
@@ -48,6 +48,10 @@ class ContactsController < ApplicationController
   end
 
   def contact_params
-    params.require(:contact).permit(:name, :email, :birthdate, :kind_id, phones_attributes: %i[id number])
+    params.require(:contact).permit(:name,
+                                    :email,
+                                    :birthdate,
+                                    :kind_id,
+                                    phones_attributes: %i[id number _destroy])
   end
 end
