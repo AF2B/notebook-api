@@ -34,7 +34,11 @@ class ContactsController < ApplicationController
   end
 
   def destroy
-    @contact.destroy
+    if @contact.destroy
+      render json: @contact
+    else
+      render json: @contact.errors, status: :unprocessable_entity
+    end
   end
 
   private
@@ -44,6 +48,6 @@ class ContactsController < ApplicationController
   end
 
   def contact_params
-    params.require(:contact).permit(:name, :email, :birthdate, :kind_id, phones_attributes: %i[number])
+    params.require(:contact).permit(:name, :email, :birthdate, :kind_id, phones_attributes: %i[id number])
   end
 end

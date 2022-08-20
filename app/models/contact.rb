@@ -8,7 +8,7 @@ class Contact < ApplicationRecord
     hash = super(except: %i[created_at updated_at kind_id id])
     hash[:birthdate] = birthdate_formatted_ptbr
     hash[:kind] = kind.description
-    hash[:phones] = phones.as_json(only: %i[number])
+    hash[:phones] = phones.as_json(only: %i[number id])
     hash
   end
 
