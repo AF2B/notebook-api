@@ -39,9 +39,11 @@
 		"kind_id": "1, 2 or 3", ~> 1: Friend, 2: Family, 3: Work
 		"phones_attributes": [
 			{
+				"id": id,
 				"number": "phone_number"
 			},
 			{
+				"id": id,
 				"number": "phone_number_optional"
 			}
 		]
