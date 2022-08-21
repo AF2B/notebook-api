@@ -36,14 +36,18 @@
 		"kind_id": "1, 2 or 3", ~> 1: Friend, 2: Family, 3: Work
 		"phones_attributes": [
 			{
-				"id": id,
+				"id": id, ~> If are POST method, this field is not required!
 				"number": "phone_number"
 			},
 			{
-				"id": id,
+				"id": id, ~> If are POST method, this field is not required!
 				"number": "phone_number_optional"
 			}
-		]
+		],
+		"address_attributes": {
+			"city": "city_value"
+			"state": "state_value"
+		}
 	}
 }
 
