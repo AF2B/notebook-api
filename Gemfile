@@ -5,6 +5,7 @@ ruby '3.1.1'
 
 gem 'bootsnap', require: false
 gem 'puma', '~> 5.0'
+gem 'rack-cors'
 gem 'rails', '~> 7.0.3', '>= 7.0.3.1'
 gem 'rails-i18n'
 gem 'sqlite3', '~> 1.4'
