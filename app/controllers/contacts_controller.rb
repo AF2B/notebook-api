@@ -52,6 +52,7 @@ class ContactsController < ApplicationController
                                     :email,
                                     :birthdate,
                                     :kind_id,
-                                    phones_attributes: %i[id number _destroy])
+                                    phones_attributes: %i[id number _destroy],
+                                    address_attributes: %i[id street city])
   end
 end
