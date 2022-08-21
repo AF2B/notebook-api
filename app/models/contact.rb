@@ -11,6 +11,7 @@ class Contact < ApplicationRecord
     hash[:birthdate] = birthdate_formatted_ptbr
     hash[:kind] = kind.description
     hash[:phones] = phones.as_json(only: %i[number id])
+    hash[:address] = address.as_json(only: %i[city state])
     hash
   end
 
