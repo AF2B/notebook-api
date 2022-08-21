@@ -6,6 +6,7 @@
 
 ## Gems
   * rails-i18n
+	* rack-cors
   * faker
 
 ## Configuration
