@@ -45,8 +45,8 @@
 			}
 		],
 		"address_attributes": {
+			"street": "street_value"
 			"city": "city_value"
-			"state": "state_value"
 		}
 	}
 }
