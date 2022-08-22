@@ -18,6 +18,7 @@
 
 ## How to run the test suite
 * run <code>rails rspec</code> for all tests
+
 * run <code>rails rspec spec/</code> for specific tests
 
 ## Deployment instructions
@@ -27,31 +28,12 @@
 
 ## Routes
 * before you can use the API and make some requests, you need to put in your header "Accept" with "application/json". Because this API is RESTful, you can use the following routes:
+
 * /contacts ~> GET: index, POST: create
+
 * /contacts/:id ~> GET: show, PATCH: update, DELETE: destroy
 
 ## Data structure to create a new contact using the API with POST HTTP method
-{ "contact":
-	{
-		"name": "name_value",
-		"email": "email value",
-		"birthdate": "dd/mm/yyyy",
-		"kind_id": "1, 2 or 3", ~> 1: Friend, 2: Family, 3: Work
-		"phones_attributes": [
-			{
-				"id": id, ~> If are POST method, this field is not required!
-				"number": "phone_number"
-			},
-			{
-				"id": id, ~> If are POST method, this field is not required!
-				"number": "phone_number_optional"
-			}
-		],
-		"address_attributes": {
-			"street": "street_value"
-			"city": "city_value"
-		}
-	}
-}
+* Because this is in construction and i don't have a yet a swagger documentation, I can't put here the dta structure to create a new contact. But this implementation is in progress.
 
 [loading...]
