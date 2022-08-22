@@ -11,6 +11,7 @@ class ContactsController < ApplicationController
     render json: @contact, include: %i[kind address phones], meta: { author: 'André Filipe F. Borba' }
   end
 
+  # FIX ME: Have an error with POST action!!!
   def create
     @contact = Contact.new(contact_params)
 
