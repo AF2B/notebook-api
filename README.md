@@ -8,12 +8,13 @@
   * rails-i18n
 	* rack-cors
   * faker
+	* foreman
 
 ## Configuration
 * clone the project with git and run on terminal <code>bundle install</code>
 
 ## Setup environment
-* run <code>rails dev:setup</code>
+* run <code>rails dev:setup</code> or you can run <code>foreman start</code>
 
 ## How to run the test suite
 * run <code>rails rspec</code> for all tests
