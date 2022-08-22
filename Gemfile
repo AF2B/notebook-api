@@ -3,6 +3,7 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '3.1.1'
 
+gem 'active_model_serializers', '~> 0.10.0'
 gem 'bootsnap', require: false
 gem 'puma', '~> 5.0'
 gem 'rack-cors'
