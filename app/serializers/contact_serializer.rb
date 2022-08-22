@@ -12,6 +12,8 @@ class ContactSerializer < ActiveModel::Serializer
   def attributes(*args)
     hash = super(*args)
     hash[:kind] = object.kind.description
+    hash[:phones] = object.phones.map(&:number)
+    hash[:address] = object.address.street if object.address.present?
     hash[:birthdate] = object.birthdate.to_time.iso8601 unless object.birthdate.blank?
     hash
   end
