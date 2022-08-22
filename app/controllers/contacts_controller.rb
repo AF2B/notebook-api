@@ -4,9 +4,7 @@ class ContactsController < ApplicationController
   def index
     @contacts = Contact.all
 
-    render json: @contacts.map { |contact|
-      contact.as_json.merge(kind: contact.kind.description)
-    }
+    render json: @contacts
   end
 
   def show
@@ -17,9 +15,7 @@ class ContactsController < ApplicationController
     @contact = Contact.new(contact_params)
 
     if @contact.save
-      render json: @contact.as_json.merge(kind: @contact.kind.description),
-             status: :created,
-             location: @contact
+      render json: @contact, status: :created
     else
       render json: @contact.errors, status: :unprocessable_entity
     end
