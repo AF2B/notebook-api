@@ -10,4 +10,10 @@ class ContactSerializer < ActiveModel::Serializer
     hash[:birthdate] = object.birthdate.to_time.iso8601 unless object.birthdate.blank?
     hash
   end
+
+  # private
+
+  # meta do
+  #   {author: "André Filipe Fonsêca Borba"}
+  # end
 end
