@@ -36,14 +36,23 @@ class KindsController < ApplicationController
   private
 
   def set_kind
-    kind_id = if params[:contact_id]
-                Contact.find(params[:contact_id]).kind_id
-              else
-                Kind.find(params[:id])
-              end
+    if params[:contact_id]
+      @kind = Contact.find(params[:contact_id]).kind_id
+      return @kind
+    end
 
-    @kind = Kind.find(kind_id)
+    @kind = Kind.find(params[:id])
   end
+
+  # def set_kind
+  #   kind_id = if params[:contact_id]
+  #               Contact.find(params[:contact_id]).kind_id
+  #             else
+  #               Kind.find(params[:id])
+  #             end
+
+  #   @kind = Kind.find(kind_id)
+  # end
 
   def kind_params
     params.require(:kind).permit(:description)
