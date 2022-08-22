@@ -8,7 +8,7 @@ class ContactsController < ApplicationController
   end
 
   def show
-    render json: @contact, include: %i[kind]
+    render json: @contact, include: %i[kind], meta: { author: 'André Filipe F. Borba' }
   end
 
   def create
