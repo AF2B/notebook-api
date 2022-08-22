@@ -8,7 +8,7 @@ class ContactsController < ApplicationController
   end
 
   def show
-    render json: @contact
+    render json: @contact, include: %i[kind]
   end
 
   def create
