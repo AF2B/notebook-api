@@ -26,7 +26,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_08_20_052740) do
     t.date "birthdate"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "kind_id", null: false
+    t.integer "kind_id"
     t.index ["kind_id"], name: "index_contacts_on_kind_id"
   end
 
