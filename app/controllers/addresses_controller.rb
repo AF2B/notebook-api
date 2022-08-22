@@ -1,7 +1,19 @@
 class AddressesController < ApplicationController
-  before_action :set_address, only: %i[show]
-  before_action :set_contact, only: %i[update]
+  before_action :set_contact
+  # before_action :set_contact, only: %i[update]
 
+  def create
+    @contact.address = Address.new(address_params)
+
+    if @contact.save
+      render json: @contact.address, status: :created, message: 'Address created',
+             location: contact_address_url(@contact)
+    else
+      render json: @contact.address.errors, status: :unprocessable_entity
+    end
+  end
+
+  # FIX ME: That not updating address, just returning it
   def update
     if @contact.address.update(address_params)
       render json: @contact.address, status: :ok, message: 'Address updated'
@@ -11,7 +23,7 @@ class AddressesController < ApplicationController
   end
 
   def show
-    render json: @address
+    render json: @contact.address
   end
 
   private
