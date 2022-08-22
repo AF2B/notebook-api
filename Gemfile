@@ -5,6 +5,7 @@ ruby '3.1.1'
 
 gem 'active_model_serializers', '~> 0.10.0'
 gem 'bootsnap', require: false
+gem 'foreman'
 gem 'puma', '~> 5.0'
 gem 'rack-cors'
 gem 'rails', '~> 7.0.3', '>= 7.0.3.1'
