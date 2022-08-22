@@ -2,7 +2,7 @@ class Contact < ApplicationRecord
   before_destroy :destroy_phones
   before_destroy :destroy_addresses
 
-  belongs_to :kind, optional: true
+  belongs_to :kind
   has_many :phones
   has_one :address
 
