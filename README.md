@@ -26,6 +26,7 @@
 ## Documentation
 
 ## Routes
+* before you can use the API and make some requests, you need to put in your header "Accept" with "application/json". Because this API is RESTful, you can use the following routes:
 * /contacts ~> GET: index, POST: create
 * /contacts/:id ~> GET: show, PATCH: update, DELETE: destroy
 
