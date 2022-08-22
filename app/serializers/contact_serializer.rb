@@ -5,8 +5,12 @@ class ContactSerializer < ActiveModel::Serializer
   has_many :phones
   has_one :address
 
+  link(:self) { contact_url(object) }
+  link(:kind) { kind_url(object.kind) }
+
   def attributes(*args)
     hash = super(*args)
+    hash[:kind] = object.kind.description
     hash[:birthdate] = object.birthdate.to_time.iso8601 unless object.birthdate.blank?
     hash
   end
