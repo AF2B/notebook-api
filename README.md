@@ -5,10 +5,11 @@
   * Rails version ~> 7.0.3
 
 ## Gems
-  - rails-i18n
-	- rack-cors
-  - faker
 	- foreman
+  - faker
+	- rack-cors
+  - rails-i18n
+  - sqlite3
 
 ## Configuration
 * clone the project with git and run on terminal <code>bundle install</code>
