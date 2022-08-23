@@ -26,6 +26,14 @@ class AddressesController < ApplicationController
     render json: @contact.address
   end
 
+  def destroy
+    if @contact.address.destroy
+      render json: @contact.address, status: :ok, message: 'Address deleted', location: contact_address_url(@contact)
+    else
+      render json: @contact.address.errors, status: :unprocessable_entity
+    end
+  end
+
   private
 
   def set_address
