@@ -26,6 +26,7 @@ class AddressesController < ApplicationController
     render json: @contact.address
   end
 
+  # FIX ME, Problem with params
   def destroy
     if @contact.address.destroy
       render json: @contact.address, status: :ok, message: 'Address deleted', location: contact_address_url(@contact)
@@ -49,6 +50,7 @@ class AddressesController < ApplicationController
     @contact = Contact.find(params[:contact_id])
   end
 
+  # FIX ME, That doest deserialize correctly for some reason...
   def address_params
     ActiveModelSerializers::Deserialization.jsonapi_parse(params)
   end
