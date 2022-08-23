@@ -1,5 +1,10 @@
 class ContactsController < ApplicationController
+  include ActionController::HttpAuthentication::Token::ControllerMethods
+
   before_action :set_contact, only: %i[show update destroy]
+  before_action :authenticate
+
+  TOKEN = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ'.freeze
 
   def index
     @contacts = Contact.all
@@ -46,5 +51,14 @@ class ContactsController < ApplicationController
 
   def contact_params
     ActiveModelSerializers::Deserialization.jsonapi_parse(params)
+  end
+
+  def authenticate
+    authenticate_or_request_with_http_token do |token, _options|
+      ActiveSupport::SecurityUtils.secure_compare(
+        ::Digest::SHA256.hexdigest(token),
+        ::Digest::SHA256.hexdigest(TOKEN)
+      )
+    end
   end
 end
