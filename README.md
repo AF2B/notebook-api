@@ -5,10 +5,10 @@
   * Rails version ~> 7.0.3
 
 ## Gems
-  * rails-i18n
-	* rack-cors
-  * faker
-	* foreman
+  - rails-i18n
+	- rack-cors
+  - faker
+	- foreman
 
 ## Configuration
 * clone the project with git and run on terminal <code>bundle install</code>
