@@ -163,6 +163,9 @@ GEM
       io-console (~> 0.5)
     sqlite3 (1.4.4)
     strscan (3.0.4)
+    swagger-docs (0.2.9)
+      activesupport (>= 3)
+      rails (>= 3)
     thor (1.2.1)
     timeout (0.3.0)
     tzinfo (2.0.5)
@@ -186,6 +189,7 @@ DEPENDENCIES
   rails (~> 7.0.3, >= 7.0.3.1)
   rails-i18n
   sqlite3 (~> 1.4)
+  swagger-docs
   tzinfo-data
 
 RUBY VERSION
