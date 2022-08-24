@@ -7,9 +7,11 @@ class ContactsController < ApplicationController
   TOKEN = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ'.freeze
 
   swagger_controller :contacts, 'Contacts'
+
   swagger_api :index do
-    summary 'Fetches all Contacts'
-    notes 'This lists all the Contacts'
+    summary 'Fetch all contacts'
+    notes 'This lists all the contacts'
+    param accepted: 'application/vnd.api+json'
     param :header, 'Authorization', :string, :required, 'Authentication token'
     response :ok
     response :unauthorized
@@ -18,7 +20,7 @@ class ContactsController < ApplicationController
   def index
     @contacts = Contact.all
 
-    render json: @contacts
+    render json: @contacts, status: :ok, message: 'Contacts listed'
   end
 
   def show

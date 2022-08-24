@@ -11,5 +11,7 @@ Rails.application.routes.draw do
 
     resource :address, only: %i[show update create destroy]
     resource :address, only: %i[show update create destroy], path: 'relationships/address'
+
+    get '/api' => redirect('/swagger/dist/index.html?url=/apidocs/api-docs.json')
   end
 end
