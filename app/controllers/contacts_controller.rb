@@ -6,6 +6,15 @@ class ContactsController < ApplicationController
 
   TOKEN = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ'.freeze
 
+  swagger_controller :contacts, 'Contacts'
+  swagger_api :index do
+    summary 'Fetches all Contacts'
+    notes 'This lists all the Contacts'
+    param :header, 'Authorization', :string, :required, 'Authentication token'
+    response :ok
+    response :unauthorized
+  end
+
   def index
     @contacts = Contact.all
 
