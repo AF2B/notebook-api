@@ -9,6 +9,8 @@ class Contact < ApplicationRecord
   accepts_nested_attributes_for :phones, allow_destroy: true
   accepts_nested_attributes_for :address, update_only: true
 
+  validates_presence_of :kind, :address
+
   def birthdate_formatted_ptbr
     I18n.localize(birthdate) unless birthdate.blank?
   end
