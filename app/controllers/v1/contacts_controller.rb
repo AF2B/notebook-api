@@ -3,9 +3,9 @@ class V1::ContactsController < ApplicationController
   include ErrorSerializer
 
   before_action :set_contact, only: %i[show update destroy]
-  before_action :authenticate
+  # before_action :authenticate
 
-  TOKEN = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ'.freeze
+  # TOKEN = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ'.freeze
 
   # swagger_controller :contacts, 'Contacts'
 
@@ -67,12 +67,12 @@ class V1::ContactsController < ApplicationController
     ActiveModelSerializers::Deserialization.jsonapi_parse(params)
   end
 
-  def authenticate
-    authenticate_or_request_with_http_token do |token, _options|
-      ActiveSupport::SecurityUtils.secure_compare(
-        ::Digest::SHA256.hexdigest(token),
-        ::Digest::SHA256.hexdigest(TOKEN)
-      )
-    end
-  end
+  # def authenticate
+  #   authenticate_or_request_with_http_token do |token, _options|
+  #     ActiveSupport::SecurityUtils.secure_compare(
+  #       ::Digest::SHA256.hexdigest(token),
+  #       ::Digest::SHA256.hexdigest(TOKEN)
+  #     )
+  #   end
+  # end
 end
