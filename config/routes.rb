@@ -2,6 +2,8 @@ Rails.application.routes.draw do
   resources :kinds
 
   api_version(module: 'V1', path: { value: 'v1' }) do
+    resource :users, only: [:create]
+
     resources :contacts do
       resource :kind, only: %i[show]
       resource :kind, only: %i[show], path: 'relationships/kind'
